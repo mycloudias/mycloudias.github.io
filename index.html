@@ -3,60 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudias | Technology for the Human Experience</title>
+    <title>Cloudias Innovations | Agile &amp; Scrum Product Owner-Based IT Solutions</title>
     <style>
         :root {
             --brand-blue: #0b23ff;
             --brand-bg: #f3f5ff;
             --brand-black: #1d1d1d;
             --brand-gray: #575757;
+            --brand-line: #e8ebff;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--brand-bg);
             color: var(--brand-black);
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            padding: 48px 20px 64px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
+        .page {
+            max-width: 940px;
+            margin: 0 auto;
+        }
+
+        /* ---------- Shared card ---------- */
+        .card {
             background: #ffffff;
-            padding: 60px 40px;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(11, 35, 255, 0.06);
-            max-width: 550px;
-            width: 90%;
+            padding: 48px 40px;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
         }
 
         .logo-container {
-            margin-bottom: 35px;
+            margin-bottom: 32px;
             display: flex;
             justify-content: center;
         }
 
         .logo {
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             height: auto;
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: clamp(1.6rem, 4vw, 2.15rem);
             color: var(--brand-black);
-            margin-bottom: 8px;
+            margin: 0 0 10px;
             font-weight: 800;
             line-height: 1.2;
+            letter-spacing: -0.4px;
         }
 
         .subtitle {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--brand-blue);
-            margin-bottom: 25px;
+            margin: 0 0 24px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -64,16 +76,18 @@
 
         .description {
             color: var(--brand-gray);
-            line-height: 1.6;
-            margin-bottom: 40px;
+            line-height: 1.65;
+            margin: 0 auto 36px;
             font-size: 1.05rem;
+            max-width: 650px;
         }
 
         .cta-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 40px;
+            max-width: 420px;
+            margin: 0 auto;
         }
 
         .btn {
@@ -82,6 +96,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 1rem;
+            text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -100,7 +115,6 @@
         .btn-outline {
             border: 2.5px solid var(--brand-blue);
             color: var(--brand-blue);
-            box-sizing: border-box;
         }
 
         .btn-outline:hover {
@@ -108,9 +122,140 @@
             color: #ffffff;
         }
 
+        /* ---------- Sections ---------- */
+        .section {
+            margin-bottom: 44px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0 0 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-lead {
+            color: var(--brand-gray);
+            margin: 0 0 24px;
+            font-size: 1rem;
+            max-width: 720px;
+        }
+
+        /* ---------- Solutions ---------- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .solution {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border: 1px solid var(--brand-line);
+            border-radius: 20px;
+            padding: 28px 24px;
+            box-shadow: 0 12px 28px rgba(11, 35, 255, 0.05);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .solution:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 36px rgba(11, 35, 255, 0.1);
+        }
+
+        .pill {
+            align-self: flex-start;
+            font-size: 0.68rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--brand-blue);
+            background: #eef1ff;
+            border-radius: 999px;
+            padding: 5px 12px;
+            margin-bottom: 16px;
+        }
+
+        .solution h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin: 0 0 8px;
+            line-height: 1.35;
+        }
+
+        .solution p {
+            color: var(--brand-gray);
+            font-size: 0.95rem;
+            margin: 0;
+            flex: 1;
+        }
+
+        /* ---------- Process steps ---------- */
+        .steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+            gap: 20px;
+        }
+
+        .step {
+            background: #ffffff;
+            border: 1px solid var(--brand-line);
+            border-radius: 18px;
+            padding: 26px 22px;
+            box-shadow: 0 8px 24px rgba(11, 35, 255, 0.04);
+        }
+
+        .step-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin: 0 0 6px;
+        }
+
+        .step p {
+            color: var(--brand-gray);
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        /* ---------- Contact card ---------- */
+        .contact-card {
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-card .section-lead {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 32px;
+        }
+
         .contact-info {
             font-size: 0.95rem;
             color: var(--brand-gray);
+            margin-top: 28px;
         }
 
         .contact-info a {
@@ -119,49 +264,167 @@
             font-weight: 600;
         }
 
+        /* ---------- Footer ---------- */
         .tagline {
-            margin-top: 45px;
+            margin-top: 44px;
+            text-align: center;
             font-size: 0.8rem;
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: #aeb6ff;
-            border-top: 1px solid #f0f2ff;
+            border-top: 1px solid #e2e6ff;
             padding-top: 25px;
             font-weight: 700;
         }
 
         @media (max-width: 600px) {
-            .container { padding: 40px 25px; }
+            body { padding: 24px 14px 48px; }
+            .card { padding: 36px 24px; border-radius: 20px; }
             h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.25rem; }
+            .section { margin-bottom: 36px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-container">
-            <img src="logo.svg" alt="Cloudias Innovation Logo" class="logo">
-        </div>
-        
-        <h1>Digital Learning Elevated with AI</h1>
-        <p class="subtitle">Clinical-Grade Ecosystem</p>
+    <div class="page">
 
-        <p class="description">
-            Advancing digital infrastructure through human-centric design. Experience our intelligent LMS solutions tailored for technical and general training excellence.
-        </p>
+        <!-- ================= HERO ================= -->
+        <header class="card hero">
+            <div class="logo-container">
+                <img src="logo.svg" alt="Cloudias Innovations Logo" class="logo">
+            </div>
 
-        <div class="cta-group">
-            <a href="https://cloudias.eduspr.com/" class="btn btn-primary" target="_blank">Access Live Demo</a>
-            <a href="https://wa.link/ksk4an" class="btn btn-outline" target="_blank">Connect on WhatsApp</a>
-        </div>
+            <h1>Customised IT Solutions, Built Alongside You</h1>
+            <p class="subtitle">Agile &amp; Scrum Product Owner– and Product Manager–Led</p>
 
-        <div class="contact-info">
-            Inquiries: <a href="mailto:ask.cloudias@gmail.com">ask.cloudias@gmail.com</a>
-        </div>
+            <p class="description">
+                CLOUDIAS Innovations is a focused IT solutions provider led by Agile and Scrum
+                Product Owners and Product Managers. In plain terms: we work in short, visible
+                cycles, decide what matters most first, and adjust as we learn from real users.
+                We start basic, step up as needed, and keep improving — with low-cost, affordable
+                subscription payments that grow with you.
+            </p>
+
+            <div class="cta-group">
+                <a href="https://cloudias.eduspr.com/" class="btn btn-primary" target="_blank" rel="noopener">Access Live Demo</a>
+                <a href="https://wa.link/ksk4an" class="btn btn-outline" target="_blank" rel="noopener">Connect on WhatsApp</a>
+            </div>
+        </header>
+
+        <!-- ================= SOLUTIONS ================= -->
+        <section class="section">
+            <h2>What We Build</h2>
+            <p class="section-lead">
+                Three production applications — and the same method we can apply to your challenge.
+                Each one started as a small working first version, then grew with its users.
+            </p>
+
+            <div class="grid">
+
+                <article class="solution">
+                    <span class="pill">Learning</span>
+                    <h3>Clinical-Grade Digital Learning</h3>
+                    <p>
+                        An intelligent LMS ecosystem for technical and general training excellence —
+                        clinical-grade rigour, human-centric design.
+                    </p>
+                </article>
+
+                <article class="solution">
+                    <span class="pill">Archiving</span>
+                    <h3>Clinical Document Digital Archiving &amp; Management</h3>
+                    <p>
+                        A structured, traceable home for clinical documentation — organised,
+                        searchable, and managed across its full lifecycle.
+                    </p>
+                </article>
+
+                <article class="solution">
+                    <span class="pill">Commerce</span>
+                    <h3>Multi-Vendor E-Commerce</h3>
+                    <p>
+                        A marketplace platform where multiple vendors list, sell and manage their
+                        own catalogues under a single storefront.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="section">
+            <h2>How We Work, In Plain Terms</h2>
+            <p class="section-lead">
+                You share your challenge. We build a small working first version — called an MVP.
+                From there, we co-develop with you, go live, and keep improving based on real user
+                feedback. Our Agile and Scrum Product Owner/Product Manager approach means someone
+                is always asking: what is most valuable to build next, and why?
+            </p>
+
+            <ol class="steps">
+                <li class="step">
+                    <div class="step-num">1</div>
+                    <h3>You share the challenge</h3>
+                    <p>We listen first — your users, your workflow, and what is actually getting in the way.</p>
+                </li>
+                <li class="step">
+                    <div class="step-num">2</div>
+                    <h3>We build a small first version</h3>
+                    <p>
+                        This is the MVP: just enough working software to test the idea, delivered
+                        fast and affordably. We start basic.
+                    </p>
+                </li>
+                <li class="step">
+                    <div class="step-num">3</div>
+                    <h3>We co-develop and go live</h3>
+                    <p>We step up as needed, refining features with you until the solution is ready for real use.</p>
+                </li>
+                <li class="step">
+                    <div class="step-num">4</div>
+                    <h3>We watch real users</h3>
+                    <p>
+                        After launch, we look at how people actually use it. In Agile terms, this is
+                        the feedback loop — short learning cycles instead of one big guess.
+                    </p>
+                </li>
+                <li class="step">
+                    <div class="step-num">5</div>
+                    <h3>We improve in short cycles</h3>
+                    <p>
+                        We keep adjusting and supporting you on an affordable subscription.
+                        A CSPO means a Certified Scrum Product Owner — in everyday language, a
+                        trained person who helps decide what to build first and why. A Product
+                        Manager keeps the product useful and aligned with your goals.
+                    </p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section class="card contact-card">
+            <h2>Let&rsquo;s start with your challenge</h2>
+            <p class="section-lead">
+                Tell us what&rsquo;s slowing your team down. We&rsquo;ll come back with an MVP plan and a
+                subscription that fits your budget.
+            </p>
+
+            <div class="cta-group">
+                <a href="mailto:ask.cloudias@gmail.com" class="btn btn-primary">Email ask.cloudias@gmail.com</a>
+                <a href="https://wa.link/ksk4an" class="btn btn-outline" target="_blank" rel="noopener">Connect on WhatsApp</a>
+            </div>
+
+            <div class="contact-info">
+                Inquiries: <a href="mailto:ask.cloudias@gmail.com">ask.cloudias@gmail.com</a>
+            </div>
+        </section>
 
         <div class="tagline">
             Technology for the Human Experience
         </div>
+
     </div>
 
 </body>
